@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Editor } from 'react-draft-wysiwyg';
+import { Editor, config } from 'react-draft-wysiwyg';
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { EditorState, ContentState, convertToRaw, convertFromRaw, getCurrentContent } from 'draft-js'
+
+
+import draftToMarkdown from 'draftjs-to-markdown';
+
+const rawContentState = convertToRaw(EditorState.getCurrentContent());
+const markup = draftToMarkdown(ContentState, config);
+
 
 class CustomEditor extends Component {
   render() {
@@ -15,6 +23,10 @@ class CustomEditor extends Component {
          editorClassName="editor-class"
          toolbarClassName="toolbar-class"
         />
+
+        {/* {markup} */}
+
+
       </div>
     );
   }

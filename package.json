@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "draft-js": "^0.10.1",
+    "draftjs-to-markdown": "^0.4.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-draft-wysiwyg": "^1.10.0"
