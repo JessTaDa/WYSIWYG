@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Editor, config } from 'react-draft-wysiwyg';
+import { render } from 'react-dom';
+// import { defaultToolbar } from '../node_modules/react-draft-wysiwyg/js/src/config/'
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { editorState, contentState, convertToRaw, getCurrentContent, RichUtils} from 'draft-js'
 import draftToMarkdown from 'draftjs-to-markdown';
+import HtmlDisplay from './components/HtmlDisplay'
 
-class CustomEditor extends Component {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markdown: ""
+    }
+    this.onEditorStateChange = this.onEditorStateChange.bind(this)
+  }
+
 
 onEditorStateChange = (editorState) => {
   const rawContentState = convertToRaw(editorState.getCurrentContent());
-  const markup = draftToMarkdown(rawContentState);
-  console.log(markup)
+  const markdown = draftToMarkdown(rawContentState);
+  this.setState({markdown: markdown});
+  // console.log(markdown)
+  console.log(this.state)
 }
+
+
 
   render() {
     return (
-      <div className="App">
+      <div>
         <div className="App-header">
           <h2>Welcome to the Editor</h2>
 
@@ -26,9 +41,13 @@ onEditorStateChange = (editorState) => {
          toolbarClassName="toolbar-class"
          onEditorStateChange={this.onEditorStateChange}
         />
+
+        <HtmlDisplay
+          markdown={this.state.markdown}
+        />
       </div>
     );
   }
 }
 
-export default CustomEditor;
+export default App;
