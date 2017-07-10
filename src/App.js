@@ -6,7 +6,9 @@ import { render } from 'react-dom';
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { editorState, contentState, convertToRaw, getCurrentContent, RichUtils} from 'draft-js'
 import draftToMarkdown from 'draftjs-to-markdown';
-import HtmlDisplay from './components/HtmlDisplay'
+import MarkdownDisplay from './components/MarkdownDisplay'
+import MarkdownToHtml from './components/MarkdownToHtml'
+
 
 class App extends Component {
   constructor(props) {
@@ -27,14 +29,13 @@ onEditorStateChange = (editorState) => {
 }
 
 
-
   render() {
     return (
       <div>
-        <div className="App-header">
+        {/* <div className="App-header">
           <h2>Welcome to the Editor</h2>
 
-        </div>
+        </div> */}
         <Editor
          wrapperClassName="wrapper-class"
          editorClassName="editor-class"
@@ -42,7 +43,11 @@ onEditorStateChange = (editorState) => {
          onEditorStateChange={this.onEditorStateChange}
         />
 
-        <HtmlDisplay
+        <MarkdownDisplay
+          markdown={this.state.markdown}
+        />
+
+        <MarkdownToHtml
           markdown={this.state.markdown}
         />
       </div>
