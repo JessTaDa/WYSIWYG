@@ -1941,6 +1941,10 @@ draft-js@^0.10.1:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
+draftjs-to-markdown@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/draftjs-to-markdown/-/draftjs-to-markdown-0.4.2.tgz#7bc00d72bc03eb42040057e1d4bcb6707a766bba"
+
 draftjs-utils@^0.7.5:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/draftjs-utils/-/draftjs-utils-0.7.5.tgz#982b671bf9b8296c89b05683e63257817d30de55"
