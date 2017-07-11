@@ -1,7 +1,6 @@
 import React from 'react';
 import { Editor, config } from 'react-draft-wysiwyg';
 import { render, ReactDOM } from 'react-dom';
-// import { defaultToolbar } from '../node_modules/react-draft-wysiwyg/js/src/config/'
 import { editorState, contentState, convertToRaw, getCurrentContent, RichUtils} from 'draft-js'
 import draftToMarkdown from 'draftjs-to-markdown';
 
